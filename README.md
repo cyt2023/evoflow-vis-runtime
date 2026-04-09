@@ -4,6 +4,14 @@
 
 It takes a user task in plain language, infers dataset structure, uses EvoFlow-style search to compose a C# operator workflow, executes that workflow through a .NET runner, evaluates the result with LLM-assisted scoring, and exports a Unity-facing JSON artifact.
 
+## EvoFlow Paper
+
+This project is inspired by the EvoFlow paper:
+
+- EvoFlow: Evolving Diverse Agentic Workflows On The Fly
+- arXiv abstract: https://arxiv.org/abs/2502.07373
+- PDF: https://arxiv.org/pdf/2502.07373.pdf
+
 ## What This Project Does
 
 Current end-to-end pipeline:
