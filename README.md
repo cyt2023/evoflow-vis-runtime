@@ -63,11 +63,12 @@ Main entry point:
 
 ### Operator Packages
 
-- `Data/`
-- `View/`
-- `Query/`
-- `Filter/`
-- `Backend/`
+- `operators/Core/`
+- `operators/Data/`
+- `operators/View/`
+- `operators/Query/`
+- `operators/Filter/`
+- `operators/Backend/`
 
 These contain the C# operator implementations used by the workflow search.
 

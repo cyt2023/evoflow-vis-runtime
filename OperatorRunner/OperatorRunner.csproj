@@ -9,11 +9,11 @@
 
   <ItemGroup>
     <Compile Include="*.cs" />
-    <Compile Include="../Core/*.cs" Link="Core/%(Filename)%(Extension)" />
-    <Compile Include="../Data/*.cs" Link="Data/%(Filename)%(Extension)" />
-    <Compile Include="../View/*.cs" Link="View/%(Filename)%(Extension)" />
-    <Compile Include="../Query/*.cs" Link="Query/%(Filename)%(Extension)" />
-    <Compile Include="../Filter/*.cs" Link="Filter/%(Filename)%(Extension)" />
-    <Compile Include="../Backend/*.cs" Link="Backend/%(Filename)%(Extension)" />
+    <Compile Include="../operators/Core/*.cs" Link="operators/Core/%(Filename)%(Extension)" />
+    <Compile Include="../operators/Data/*.cs" Link="operators/Data/%(Filename)%(Extension)" />
+    <Compile Include="../operators/View/*.cs" Link="operators/View/%(Filename)%(Extension)" />
+    <Compile Include="../operators/Query/*.cs" Link="operators/Query/%(Filename)%(Extension)" />
+    <Compile Include="../operators/Filter/*.cs" Link="operators/Filter/%(Filename)%(Extension)" />
+    <Compile Include="../operators/Backend/*.cs" Link="operators/Backend/%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>
