@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="*.cs" />
+    <Compile Include="../Core/*.cs" Link="Core/%(Filename)%(Extension)" />
+    <Compile Include="../Data/*.cs" Link="Data/%(Filename)%(Extension)" />
+    <Compile Include="../View/*.cs" Link="View/%(Filename)%(Extension)" />
+    <Compile Include="../Query/*.cs" Link="Query/%(Filename)%(Extension)" />
+    <Compile Include="../Filter/*.cs" Link="Filter/%(Filename)%(Extension)" />
+    <Compile Include="../Backend/*.cs" Link="Backend/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/bin/Debug/net8.0/OperatorRunner.deps.json
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/bin/Debug/net8.0/OperatorRunner.runtimeconfig.json
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/bin/Debug/net8.0/OperatorRunner.dll
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/bin/Debug/net8.0/OperatorRunner.pdb
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.AssemblyInfoInputs.cache
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.AssemblyInfo.cs
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.csproj.CoreCompileInputs.cache
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.dll
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/refint/OperatorRunner.dll
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.pdb
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/OperatorRunner.genruntimeconfig.cache
+/Users/cyt/Desktop/OperatorsDraft/OperatorRunner/obj/Debug/net8.0/ref/OperatorRunner.dll

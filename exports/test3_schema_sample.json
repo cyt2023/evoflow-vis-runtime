@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "schemaVersion": "2.0.0",
+    "exportedAt": "2026-04-09T10:09:52.335328+00:00",
+    "taskId": "test3",
+    "datasetProfile": "inferred_hurricane_sandy_2012_100k_sample",
+    "sourceDataPath": "/Users/cyt/Desktop/OperatorsDraft/demo_data/hurricane_sandy_2012_100k_sample.csv"
+  },
+  "task": {
+    "rawText": "Find concentrated morning pickup hotspots in the Hurricane Sandy sample and render them as a backend-ready point visualization.",
+    "parsedSpec": {
+      "requiredViewType": "Point",
+      "atomicMode": "Origin",
+      "requireBackendBuild": true,
+      "mapping": {
+        "tripIdColumn": "column_0",
+        "originXColumn": "pickup_longitude",
+        "originYColumn": "pickup_latitude",
+        "destinationXColumn": "dropoff_longitude",
+        "destinationYColumn": "dropoff_latitude",
+        "originTimeColumn": "EncodedTime",
+        "destinationTimeColumn": "EncodedTime",
+        "colorColumn": "fare_amount",
+        "sizeColumn": "passenger_count",
+        "isSTCMode": false
+      },
+      "normalizeColumns": [
+        "pickup_longitude",
+        "pickup_latitude",
+        "dropoff_longitude",
+        "dropoff_latitude",
+        "passenger_count",
+        "fare_amount",
+        "trip_distance",
+        "tip_amount",
+        "total_amount"
+      ],
+      "filter": {
+        "column": "passenger_count",
+        "value": "1"
+      },
+      "timeColumn": "pickup_datetime",
+      "encodedTimeColumn": "EncodedTime",
+      "spatialRegion": {
+        "minX": 0.15,
+        "maxX": 0.85,
+        "minY": 0.15,
+        "maxY": 0.85,
+        "minTime": 0.0,
+        "maxTime": 86400.0
+      },
+      "timeWindow": {
+        "start": 21600.0,
+        "end": 36000.0
+      },
+      "recurrentHours": [
+        7,
+        8,
+        9
+      ]
+    }
+  },
+  "selectedWorkflow": {
+    "operators": [
+      "ReadDataOperator",
+      "FilterRowsOperator",
+      "NormalizeAttributesOperator",
+      "EncodeTimeOperator",
+      "MapToVisualSpaceOperator",
+      "BuildPointViewOperator",
+      "CreateAtomicQueryOperator",
+      "CreateDirectionalQueryOperator",
+      "RecurrentQueryComposeOperator",
+      "MergeQueriesOperator",
+      "ApplySpatialFilterOperator",
+      "ApplyTemporalFilterOperator",
+      "CombineFiltersOperator",
+      "UpdateViewEncodingOperator",
+      "AdaptedIATKViewBuilderOperator"
+    ],
+    "operatorCount": 15,
+    "parametersUsed": {
+      "mapping": {
+        "tripIdColumn": "column_0",
+        "originXColumn": "pickup_longitude",
+        "originYColumn": "pickup_latitude",
+        "destinationXColumn": "dropoff_longitude",
+        "destinationYColumn": "dropoff_latitude",
+        "originTimeColumn": "EncodedTime",
+        "destinationTimeColumn": "EncodedTime",
+        "colorColumn": "fare_amount",
+        "sizeColumn": "passenger_count",
+        "isSTCMode": false
+      },
+      "filterColumn": "passenger_count",
+      "filterValue": "1",
+      "timeWindow": {
+        "start": 21600.0,
+        "end": 36000.0
+      },
+      "spatialRegion": {
+        "minX": 0.15,
+        "maxX": 0.85,
+        "minY": 0.15,
+        "maxY": 0.85,
+        "minTime": 0.0,
+        "maxTime": 86400.0
+      },
+      "atomicMode": "Origin",
+      "recurrentHours": [
+        7,
+        8,
+        9
+      ]
+    },
+    "scores": {
+      "fitness": 0.756,
+      "execution": 0.6025,
+      "llm": 0.6,
+      "selfEvaluation": {
+        "score": 0.6025,
+        "precision": 0.35,
+        "recall": 0.35,
+        "f1": 0.35,
+        "notes": [
+          "No expected row ids were provided; heuristic selection-quality evaluation was used.",
+          "View type matches task.",
+          "Spatial filtering was included.",
+          "Temporal filtering was included.",
+          "View encoding was updated.",
+          "Backend build completed."
+        ]
+      },
+      "llmReason": "The workflow completed necessary steps including spatial/temporal filtering and backend build, but metrics suggest limited precision in hotspot identification."
+    }
+  },
+  "visualization": {
+    "intent": {
+      "primaryViewType": "Point",
+      "targetRole": "Origin",
+      "backendReadyRequired": true,
+      "spatialFilterRequired": true,
+      "temporalFilterRequired": true,
+      "hotspotFocus": true
+    },
+    "renderPlan": {
+      "status": "ready",
+      "primaryView": {
+        "name": "PointView",
+        "type": "Point",
+        "role": "Origin",
+        "projection": "",
+        "pointCount": 69404,
+        "linkCount": 0,
+        "backendReady": true
+      },
+      "coordinatedViews": [],
+      "channels": {
+        "position": {
+          "x": "pickup_longitude",
+          "y": "pickup_latitude",
+          "z": null,
+          "time": "pickup_datetime"
+        },
+        "color": {
+          "sourceColumn": "fare_amount",
+          "valueType": "numeric"
+        },
+        "size": {
+          "sourceColumn": "passenger_count",
+          "valueType": "numeric"
+        }
+      },
+      "filtersApplied": {
+        "rowFilter": {
+          "enabled": true,
+          "column": "passenger_count",
+          "value": "1"
+        },
+        "spatialFilter": {
+          "required": true,
+          "applied": true,
+          "targetRole": "All",
+          "region": {
+            "minX": 0.15,
+            "maxX": 0.85,
+            "minY": 0.15,
+            "maxY": 0.85,
+            "minTime": 0.0,
+            "maxTime": 86400.0
+          },
+          "selectedPointCount": 28908
+        },
+        "temporalFilter": {
+          "required": true,
+          "applied": true,
+          "targetRole": "All",
+          "timeColumn": "pickup_datetime",
+          "encodedTimeColumn": "EncodedTime",
+          "window": {
+            "start": 21600.0,
+            "end": 36000.0
+          },
+          "recurrentHours": [
+            7,
+            8,
+            9
+          ],
+          "selectedPointCount": 2710
+        },
+        "combinedSelection": {
+          "applied": true,
+          "targetRole": "All",
+          "selectedPointCount": 2646
+        }
+      },
+      "selection": {
+        "selectedRowCount": 1322,
+        "selectedRowSample": [
+          "13652809",
+          "13654315",
+          "13677963",
+          "13661800",
+          "13649847",
+          "13661340",
+          "13657129",
+          "13648641"
+        ],
+        "selectedPointCount": 1322,
+        "finalSelectedPointCount": 2646,
+        "selectedRowIdsCount": 1322,
+        "selectedRowIdsSample": [
+          "13652809",
+          "13654315",
+          "13677963",
+          "13661800",
+          "13649847",
+          "13661340",
+          "13657129",
+          "13648641"
+        ]
+      },
+      "geometry": {
+        "pointsCount": 69404,
+        "pointsSample": [
+          {
+            "pointId": 0,
+            "sourceRowIndex": 0,
+            "rowId": "13876836",
+            "role": "Origin",
+            "position": {
+              "x": 0.5009908,
+              "y": 0.6065626,
+              "z": 0
+            },
+            "timeValue": 66161,
+            "colorValue": 0.10985915,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 1,
+            "sourceRowIndex": 1,
+            "rowId": "15284740",
+            "role": "Origin",
+            "position": {
+              "x": 0.47086537,
+              "y": 0.5689952,
+              "z": 0
+            },
+            "timeValue": 554460,
+            "colorValue": 0.01690141,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 2,
+            "sourceRowIndex": 2,
+            "rowId": "14248738",
+            "role": "Origin",
+            "position": {
+              "x": 0.4765745,
+              "y": 0.57022023,
+              "z": 0
+            },
+            "timeValue": 270986,
+            "colorValue": 0.06478873,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 3,
+            "sourceRowIndex": 3,
+            "rowId": "14414787",
+            "role": "Origin",
+            "position": {
+              "x": 0.5535647,
+              "y": 0.62220603,
+              "z": 0
+            },
+            "timeValue": 322609,
+            "colorValue": 0.09014084,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 4,
+            "sourceRowIndex": 4,
+            "rowId": "13966121",
+            "role": "Origin",
+            "position": {
+              "x": 0.51612276,
+              "y": 0.54213214,
+              "z": 0
+            },
+            "timeValue": 116381,
+            "colorValue": 0.04225352,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 5,
+            "sourceRowIndex": 5,
+            "rowId": "15380272",
+            "role": "Origin",
+            "position": {
+              "x": 0.53645116,
+              "y": 0.6730835,
+              "z": 0
+            },
+            "timeValue": 571045,
+            "colorValue": 0.014084507,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 6,
+            "sourceRowIndex": 6,
+            "rowId": "15029868",
+            "role": "Origin",
+            "position": {
+              "x": 0.49734637,
+              "y": 0.44594818,
+              "z": 0
+            },
+            "timeValue": 487077,
+            "colorValue": 0.10140845,
+            "sizeValue": 0,
+            "selected": false
+          },
+          {
+            "pointId": 7,
+            "sourceRowIndex": 7,
+            "rowId": "13510692",
+            "role": "Origin",
+            "position": {
+              "x": 0.52518535,
+              "y": 0.5367265,
+              "z": 0
+            },
+            "timeValue": 385,
+            "colorValue": 0.04507042,
+            "sizeValue": 0,
+            "selected": false
+          }
+        ],
+        "linksCount": 0,
+        "linksSample": []
+      }
+    },
+    "dataSummary": {
+      "rowCount": 69404,
+      "pointCount": 69404,
+      "linkCount": 0,
+      "timeRange": {
+        "min": 0,
+        "max": 604537
+      },
+      "hasODSemantics": true
+    },
+    "semanticSummary": {
+      "whatToRender": "Point view",
+      "whyTheseMarks": "Marks satisfy the selected workflow output after row, spatial, and temporal filtering.",
+      "queryIntent": {
+        "atomicMode": "Origin",
+        "requiredViewType": "Point",
+        "activeQueryType": "Merged"
+      }
+    }
+  },
+  "resultSummary": {
+    "viewType": "Point",
+    "selectedRowCount": 1322,
+    "selectedRowSample": [
+      "13652809",
+      "13654315",
+      "13677963",
+      "13661800",
+      "13649847",
+      "13661340",
+      "13657129",
+      "13648641"
+    ],
+    "selectedPointCount": 1322,
+    "totalRows": 69404,
+    "backendBuilt": true,
+    "encodingState": {
+      "MaskApplied": "True",
+      "SelectedCount": "2646",
+      "LastFilterMaskCount": "138808",
+      "RequiresBackendSync": "True",
+      "FilterTargetRole": "Origin",
+      "AdaptedIATKViewBuilderApplied": "True",
+      "BackendBuildPending": "False"
+    },
+    "diagnostics": {
+      "spatialSelectedCount": 28908,
+      "temporalSelectedCount": 2710,
+      "finalSelectedCount": 2646,
+      "spatialTargetRole": null,
+      "temporalTargetRole": null,
+      "finalTargetRole": null
+    },
+    "selectedRowIdsCount": 1322,
+    "selectedRowIdsSample": [
+      "13652809",
+      "13654315",
+      "13677963",
+      "13661800",
+      "13649847",
+      "13661340",
+      "13657129",
+      "13648641"
+    ]
+  }
+}
